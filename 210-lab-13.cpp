@@ -14,14 +14,14 @@ void coutTimes(vector<double>&);
 
 int main()
 {
-	vector<double> times; //creates vector for runners' 100m dash times
+	vector<double> times(RUNNERS); //creates vector for runners' 100m dash times
 	finTimes(times); //populates vector from txt file
 
 	cout << "1. # of times: " << times.size() << endl; //showcase variety of functions
 	cout << "2. Values: " << endl;
 	coutTimes(times); //output all times
-	cout << "3. Front: " << times.front() << endl; //first in array
-	cout << "4. Back: " << times.back() << endl; //last in array
+	cout << "3. Front: " << times.front() << endl; //first in vector
+	cout << "4. Back: " << times.back() << endl; //last in vector
 	cout << "5. Empty?: " << (times.empty() == 0 ? "False" : "True") << endl; //check empty
 	cout << "6. Max: " << *max_element(times.begin(), times.end()) << endl; //find max
 	cout << "7. Min: " << *min_element(times.begin(), times.end()) << endl; //find min
