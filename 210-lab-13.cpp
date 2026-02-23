@@ -55,7 +55,7 @@ void finTimes(vector<double>& times) {
 	string buf;
 
 	if (fin.good()) {
-		for (int i = 0; i < RUNNERS; i++) {
+		for (int i = 0; i < times.size(); i++) {
 			getline(fin, buf); times[i] = atof(buf.c_str());
 		}
 
@@ -68,7 +68,7 @@ void finTimes(vector<double>& times) {
 }
 
 void coutTimes(vector<double>& times) {
-	for (int i = 0; i < RUNNERS; i++) {
+	for (int i = 0; i < times.size(); i++) {
 		cout << i + 1 << ". " << times[i] << "   ";
 
 		if ((i + 1) % 10 == 0) {
