@@ -1,7 +1,7 @@
 #include <iostream>
 #include <algorithm> //for sort() and find()
 #include <numeric> //for accumulate()
-#include <array>
+#include <vector>
 #include <string>
 #include <fstream> //for reading file
 #include <cstdlib> //for atof
@@ -9,13 +9,13 @@ using namespace std;
 
 const int RUNNERS = 30;
 
-void finTimes(array<double, RUNNERS>&);
-void coutTimes(array<double, RUNNERS>&);
+void finTimes(vector<double>&);
+void coutTimes(vector<double>&);
 
 int main()
 {
-	array<double, RUNNERS> times; //creates array for runners' 100m dash times
-	finTimes(times); //populates array from txt file
+	vector<double> times; //creates vector for runners' 100m dash times
+	finTimes(times); //populates vector from txt file
 
 	cout << "1. # of times: " << times.size() << endl; //showcase variety of functions
 	cout << "2. Values: " << endl;
@@ -28,7 +28,7 @@ int main()
 
 	cout << "8. Find 11.12s: "; //finds target index + 1 to account for offset
 	double target = 11.12;
-	array<double, RUNNERS>::iterator it;
+	vector<double>::iterator it;
 	it = find(times.begin(), times.end(), target);
 	if (it != times.end()) {
 		cout << it - times.begin() + 1 << endl;
@@ -49,7 +49,7 @@ int main()
 
 }
 
-void finTimes(array<double, RUNNERS>& times) {
+void finTimes(vector<double>& times) {
 	ifstream fin;
 	fin.open("times.txt");
 	string buf;
@@ -67,7 +67,7 @@ void finTimes(array<double, RUNNERS>& times) {
 
 }
 
-void coutTimes(array<double, RUNNERS>& times) {
+void coutTimes(vector<double>& times) {
 	for (int i = 0; i < RUNNERS; i++) {
 		cout << i + 1 << ". " << times[i] << "   ";
 
